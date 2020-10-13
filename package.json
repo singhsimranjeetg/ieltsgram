@@ -1,8 +1,8 @@
 {
-  "name": "complex-app",
+  "name": "ieltsgram",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "db.js",
   "scripts": {
     "watch": "nodemon db --ignore frontend-js --ignore public/",
     "webpack": "webpack --watch",
