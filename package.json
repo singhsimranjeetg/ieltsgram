@@ -2,7 +2,7 @@
   "name": "ieltsgram",
   "version": "1.0.0",
   "description": "",
-  "main": "db.js",
+  "main": "app.js",
   "scripts": {
     "watch": "nodemon db --ignore frontend-js --ignore public/",
     "webpack": "webpack --watch",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "@sendgrid/mail": "^7.2.6",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
     "bcryptjs": "^2.4.3",

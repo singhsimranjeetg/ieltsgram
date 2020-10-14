@@ -5,5 +5,10 @@ const mongodb = require('mongodb')
 mongodb.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
   module.exports = client
   const app = require('./app')
-  app.listen(process.env.PORT)
+
+  let port = process.env.PORT
+  if (port == null || port == ""){
+    port = 5000
+  }
+  app.listen(port)
 })
