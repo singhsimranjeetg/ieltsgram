@@ -12,6 +12,9 @@ if (document.querySelector("#chat-wrapper")) {
 }
 if (document.querySelector(".header-search-icon")) {new Search()}
 
-if (document.querySelector('#post-body')) {
+
+if (document.querySelector('#post-body') || document.querySelector('#abcdefg') )   {
     new wordsCount()
 }
+
+

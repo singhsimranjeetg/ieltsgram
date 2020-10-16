@@ -1,6 +1,6 @@
   <%- include('includes/header') %>
   
-  <div class="container py-md-5 container--narrow">
+  <div class="container py-md-5 container--narrow"   >
 
     <%- include('includes/flash') %>
 
@@ -21,11 +21,11 @@
       <a href="/profile/<%= post.author.username %>"><img class="avatar-tiny" src="<%= post.author.avatar %>"></a>
       Posted by <a href="/profile/<%= post.author.username %>"><%= post.author.username %></a> on <%= post.createdDate.getMonth() + 1 %>/<%= post.createdDate.getDate() %>/<%= post.createdDate.getFullYear() %></p>
 
-    <div class="body-content" id="post-view">
-      <%- filterUserHTML(post.body) %>
+    <div class="body-content" id="abcdefg">
+    <%- filterUserHTML(post.body)  %>    
     </div>
-    <div class = "words-count-post"></div>
+    <div class = "words-count-post">Words:</div>
 
   </div>
-  
+  <%- include('add-comment') %>
   <%- include('includes/footer') %>
