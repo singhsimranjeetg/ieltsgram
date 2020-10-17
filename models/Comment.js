@@ -5,40 +5,42 @@ const ObjectID = require('mongodb').ObjectID
 const User = require('./User')
 const sanitizeHTML = require('sanitize-html')
 
-let Comment = function(data, userId, postId, commentId ) {
+let Comment = function(data, userId) {
   this.data = data
   this.errors = []
   this.userId = userId
-  this.postId = postId
-  this.commentId = commentId
+/*  this.postId = postId
+  this.commentId = commentId*/
   
 }
 
 Comment.prototype.cleanUp = function() {
-  if (typeof(this.data.title) != "string") {this.data.title = ""}
-  if (typeof(this.data.body) != "string") {this.data.body = ""}
+  if (typeof(this.data.comment) != "string") {this.data.comment = ""}
+ // if (typeof(this.data.body) != "string") {this.data.body = ""}
 
   // get rid of any bogus properties
   this.data = {
-    body: sanitizeHTML(this.data.comment.trim(), {allowedTags: [], allowedAttributes: {}}),
+    comment: sanitizeHTML(this.data.comment.trim(), {allowedTags: [], allowedAttributes: {}}),
     createdDate: new Date(),
     author: ObjectID(this.userId),
-    postId: ObjectID(this.postId)
+   // postId: ObjectID(this.postId)
   }
 }
 
 Comment.prototype.validate = function() {
-  if (this.data.body == "") {this.errors.push("You must provide Comment content.")}
+  if (this.data.comment == "") {this.errors.push("You must provide Comment content.")}
 }
 
 Comment.prototype.create = function() {
   return new Promise((resolve, reject) => {
+      
     this.cleanUp()
     this.validate()
     if (!this.errors.length) {
       // save Comment into database
-     commentsCollection.insertOne(this.data).then((info) => {
-        resolve(info.ops[0]._id)
+     commentsCollection.insertOne(this.data).then(() => {
+        resolve()
+        
       }).catch(() => {
         this.errors.push("Please try again later.")
         reject(this.errors)

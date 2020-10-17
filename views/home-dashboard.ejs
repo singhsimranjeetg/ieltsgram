@@ -9,7 +9,7 @@
       <div class="list-group">
         <% posts.forEach(function(post) { %>
           <a href="/post/<%= post._id %>" class="list-group-item list-group-item-action">
-            <img class="avatar-tiny" src="<%= post.author.avatar %>">
+            <img class="avatar-tiny" alt="<%= post.author.username %>" title="<%= post.author.username %>" src="https://banner2.cleanpng.com/20180725/fic/kisspng-computer-icons-user-profile-social-web-5b5877b5ef7d48.492420571532524469981.jpg">
             <strong><%= post.title %></strong> <span class="text-muted small">by <%= post.author.username %> on <%= post.createdDate.getMonth() + 1 %>/<%= post.createdDate.getDate() %>/<%= post.createdDate.getFullYear() %></span>
           </a>
         <% }) %>

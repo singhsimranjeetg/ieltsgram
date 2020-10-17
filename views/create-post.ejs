@@ -6,14 +6,39 @@
 
     <form action="/create-post" method="POST">
       <div class="form-group">
+        <label for="task" class="text-muted mb-1"><small>Task</small></label>
+        <select name="task" id="task" class="form-control form-control mb-1" required>
+          <optgroup label="Academic Task 1">
+            <option value="Academic Task 1 Bar Chart">Bar Chart</option>
+            <option value="Academic Task 1 Pie Chart">Pie Chart</option>
+            <option value="Academic Task 1 Table Chart">Table Chart</option>
+            <option value="Academic Task 1 Line Graph">Line Graph</option>
+            <option value="Academic Task 1 Other">Other</option>
+         </optgroup>
+         <optgroup label="General Task 1">
+            <option value="General Task 1 Formal Letter">Formal Letter</option>
+            <option value="General Task 1 Informal Letter">Informal Letter</option>
+            <option value="General Task 1 Semi-Formal">Semi-Formal</option>
+            <option value="General Task 1 Other">Other</option>
+         </optgroup>
+         <optgroup label="Academic/General Task 2">
+            <option value="Academic or General Task 2 Advantages or Disadvantages">Advantages/Disadvantages</option>
+            <option value="Academic or General Task 2 Agree or Disagree">Agree/Disagree</option>
+            <option value="Academic or General Task 2 Problem or Solution">Problem/Solution</option>
+            <option value="Academic or General Task 2 Opinion Essays">Opinion Essays</option>
+            <option value="Academic or General Task 2 Discussion Essays">Discussion Essays</option>
+            <option value="Academic or General Task 2 Double Question">Double Question</option>
+            <option value="Academic or General Task 2 Other">Other</option> 
+         </optgroup>
+        </select>
         <label for="post-title" class="text-muted mb-1"><small>Title</small></label>
-        <input required name="title" id="post-title" class="form-control form-control-lg form-control-title" type="text" placeholder="" autocomplete="off">
+        <textarea required name="title" id="post-title" class="body-content textarea form-control" type="text" placeholder="" autocomplete="off"></textarea>
       </div>
 
       <div class="form-group">
         <label for="post-body" class="text-muted mb-1"><small>Body Content</small></label>
         <textarea required name="body" id="post-body" class="body-content tall-textarea form-control" type="text"></textarea>
-        <div class="words-counter-ctn" id="words-couter"></div>
+        <div class="words-counter-ctn" id="words-couter">Words: <strong>0</strong> &nbsp  Sentences: <strong>0</strong> &nbsp Paragraphs: <strong>0</strong> &nbsp Characters: <strong>0</strong></div>
       </div>
       
       <input type="hidden" name="_csrf" value="<%= csrfToken %>">

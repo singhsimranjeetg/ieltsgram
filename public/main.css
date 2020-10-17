@@ -41,12 +41,12 @@ body, .tooltip
 }
 
 .form-control-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
 .body-content {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: #292929;
 }
@@ -111,7 +111,7 @@ body, .tooltip
 }
 
 textarea.tall-textarea {
-  height: 160px;
+  height: 200px;
 }
 
 @media (min-width: 768px) {

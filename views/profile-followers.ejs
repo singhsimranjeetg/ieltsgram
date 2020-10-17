@@ -8,7 +8,7 @@
   <div class="list-group">
     <% followers.forEach(function(follower) { %>
       <a href="/profile/<%= follower.username %>" class="list-group-item list-group-item-action">
-        <img class="avatar-tiny" src="<%= follower.avatar %>">
+        <img class="avatar-tiny" title="<%= follower.username %>" src="https://banner2.cleanpng.com/20180725/fic/kisspng-computer-icons-user-profile-social-web-5b5877b5ef7d48.492420571532524469981.jpg">
         <%= follower.username %>
       </a>
     <% }) %>

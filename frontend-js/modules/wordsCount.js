@@ -10,26 +10,29 @@ export default class wordsCount {
     this.counterCtn = document.querySelector(".words-counter-ctn")
     this.body = document.querySelector("#post-body")
 
-  /*  this.post = document.querySelector('.words-count-post')
-    this.postView = document.querySelector('#abcdefg')*/
-    
-    this.events();
-   /* console.log(this.body)
-    console.log(this.postView)*/
-    
-    
-    
+    this.post = document.querySelector('.words-count-post')
+    this.postView = document.getElementById('abcdefg')
 
+    if (this.body != null) {
+        this.events();
+
+    }
+
+    if (this.postView != null) {
+        Countable.count(this.postView, counter => {
+        console.log(counter)
+        this.post.innerHTML = `Words: <strong>${counter.words}</strong>`
+        })
+
+    }
+
+ 
   }
 
 //events
 events() {
     this.body.addEventListener('keyup', () => this.createPostCount())
-   /* setTimeout(() => {
-        this.viewPostCount()
-        
-    }, 2000);*/
-    
+  
 
 }
   
@@ -40,13 +43,5 @@ events() {
           this.counterCtn.innerHTML = `Words: <strong>${counter.words}</strong> &nbsp  Sentences: <strong>${counter.sentences}</strong> &nbsp Paragraphs: <strong>${counter.paragraphs}</strong> &nbsp Characters: <strong>${counter.characters}</strong>`
       })
   }
-
-  /*viewPostCount() {
-         Countable.count(document.getElementById('abcdefg'), counter => {
-        console.log(counter)
-        this.post.innerHTML = `Words: <strong>${counter.words}</strong> &nbsp  Sentences: <strong>${counter.sentences}</strong> &nbsp Paragraphs: <strong>${counter.paragraphs}</strong> &nbsp Characters: <strong>${counter.characters}</strong>`
-        })
-  
-  }*/
 
 }

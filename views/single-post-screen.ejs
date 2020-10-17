@@ -18,13 +18,13 @@
     </div>
       
     <p class="text-muted small mb-4">
-      <a href="/profile/<%= post.author.username %>"><img class="avatar-tiny" src="<%= post.author.avatar %>"></a>
+      <a href="/profile/<%= post.author.username %>"><img class="avatar-tiny" title="<%= post.author.username %>" src="https://banner2.cleanpng.com/20180725/fic/kisspng-computer-icons-user-profile-social-web-5b5877b5ef7d48.492420571532524469981.jpg"></a>
       Posted by <a href="/profile/<%= post.author.username %>"><%= post.author.username %></a> on <%= post.createdDate.getMonth() + 1 %>/<%= post.createdDate.getDate() %>/<%= post.createdDate.getFullYear() %></p>
 
     <div class="body-content" id="abcdefg">
     <%- filterUserHTML(post.body)  %>    
     </div>
-    <div class = "words-count-post">Words:</div>
+    <div class = "words-count-post"></div>
 
   </div>
   <%- include('add-comment') %>
