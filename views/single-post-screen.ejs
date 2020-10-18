@@ -27,5 +27,34 @@
     <div class = "words-count-post"></div>
 
   </div>
-  <%- include('add-comment') %>
+ 
+
+
+  
+  <div class="container bootstrap snippets bootdey">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3 class="text-success">Comments</h3>
+                <hr/>
+        <% comments.forEach(function(commentDoc) { %>
+				<ul class="comments">     
+				<li class="clearfix">
+				  <img src="https://banner2.cleanpng.com/20180725/fic/kisspng-computer-icons-user-profile-social-web-5b5877b5ef7d48.492420571532524469981.jpg" class="avatar" alt="">
+				  <div class="post-comments">
+            <a href="#"><%= commentDoc.authorName %></a> <p class="meta"><%= commentDoc.createdDate.getMonth() + 1 %>/<%= commentDoc.createdDate.getDate() %>/<%= commentDoc.createdDate.getFullYear() %></p>
+				      <p>
+				        <%= commentDoc.comment %>
+				      </p>
+				  </div>
+        </li>
+        
+        </ul>
+        <% }) %>
+			</div>
+		</div>
+	</div>
+</div>
+   <%- include('add-comment') %>
+
   <%- include('includes/footer') %>

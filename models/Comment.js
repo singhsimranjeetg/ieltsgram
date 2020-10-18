@@ -5,10 +5,12 @@ const ObjectID = require('mongodb').ObjectID
 const User = require('./User')
 const sanitizeHTML = require('sanitize-html')
 
-let Comment = function(data, userId) {
+let Comment = function(data, userId, userName, postId) {
   this.data = data
   this.errors = []
   this.userId = userId
+  this.userName = userName
+  this.postId = postId
 /*  this.postId = postId
   this.commentId = commentId*/
   
@@ -23,7 +25,8 @@ Comment.prototype.cleanUp = function() {
     comment: sanitizeHTML(this.data.comment.trim(), {allowedTags: [], allowedAttributes: {}}),
     createdDate: new Date(),
     author: ObjectID(this.userId),
-   // postId: ObjectID(this.postId)
+    authorName: this.userName,
+    postId: ObjectID(this.postId)
   }
 }
 
@@ -50,4 +53,21 @@ Comment.prototype.create = function() {
     }
   })
 }
+
+
+Comment.findByPostId = async function(postId) {
+
+  
+    let commentsDocs = await commentsCollection.find({postId: new ObjectID(postId)}) .toArray()
+    //let comments = commentsDocs.map(commentDoc => commentDoc.comment)
+    //console.log(commentsDocs)
+    return commentsDocs;
+  } 
+   
+  
+ 
+
+
+//{postId: new ObjectID("5f8905b116958d00043b4b75")}
+
   module.exports = Comment

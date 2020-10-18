@@ -1,8 +1,19 @@
-    <form action="/add-comment" method="POST">
-      <div class="form-group">
+  
+<form action="/post/<%= post._id %>/add-comment" method="POST">
+      <div class="form-group container container--narrow">
         <label for="post-comment" class="text-muted mb-1"><small>Comment</small></label>
         <input required name="comment" id="post-comment" class="form-control form-control-lg form-control-title mb-3" type="text" placeholder="" autocomplete="off">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button class="btn btn-primary">Add Comment</button>
       </div>
-    </form>
+</form> 
+
+
+
+
+   
+
+ 
+                
+                 
+                 

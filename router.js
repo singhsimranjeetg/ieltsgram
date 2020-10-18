@@ -32,6 +32,6 @@ router.post('/addFollow/:username', userController.mustBeLoggedIn, followControl
 router.post('/removeFollow/:username', userController.mustBeLoggedIn, followController.removeFollow)
 
 // comments related routes
-router.post('/add-comment', userController.mustBeLoggedIn, commentController.create)
+router.post('/post/:id/add-comment', userController.mustBeLoggedIn, commentController.create)
 
 module.exports = router

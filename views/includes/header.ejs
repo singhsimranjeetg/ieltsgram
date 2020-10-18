@@ -20,7 +20,7 @@
             <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-search"></i></a>
             <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-comment"></i></span>
             <a href="/profile/<%= user.username %>" class="mr-2"><img title="<%= user.username %>" data-toggle="tooltip" data-placement="bottom" style="width: 32px; height: 32px; border-radius: 16px;" src="https://banner2.cleanpng.com/20180725/fic/kisspng-computer-icons-user-profile-social-web-5b5877b5ef7d48.492420571532524469981.jpg"></a>
-            <a class="btn btn-sm btn-success mr-2" href="/create-post">New Task</a>
+            <a class="btn btn-sm btn-success mr-2" href="/create-post">Create New Task</a>
             <form action="/logout" method="POST" class="d-inline">
               <input type="hidden" name="_csrf" value="<%= csrfToken %>">
               <button class="btn btn-sm btn-secondary">Sign Out</button>

@@ -1,6 +1,7 @@
 const Post = require('../models/Post')
 const sendgrid = require('@sendgrid/mail')
 sendgrid.setApiKey(process.env.SENDGRIDAPIKEY)
+const commentController = require('./commentController')
 
 exports.viewCreateScreen = function(req, res) {
   res.render('create-post')
@@ -33,10 +34,16 @@ exports.apiCreate = function(req, res) {
   })
 }
 
-exports.viewSingle = async function(req, res) {
+exports.viewSingle = async function(req, res, next) {
   try {
+    
     let post = await Post.findSingleById(req.params.id, req.visitorId)
-    res.render('single-post-screen', {post: post, title: post.title})
+    let comments = await commentController.findCommentsByPostId(req.params.id) 
+    
+    res.render('single-post-screen', {post: post, title: post.title, comments: comments})
+    return post;
+   // next()
+    
   } catch {
     res.render('404')
   }
